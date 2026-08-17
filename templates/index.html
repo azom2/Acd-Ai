@@ -1,0 +1,386 @@
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AcadAI - مساعدك الأكاديمي الذكي</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        <span>✦</span>
+        AcadAI
+    </div>
+
+    <nav>
+        <a href="#home">الرئيسية</a>
+        <a href="#tools">الأدوات</a>
+        <a href="#about">حولنا</a>
+        <a href="#contact">تواصل معنا</a>
+    </nav>
+
+    <div class="nav-buttons">
+        <button class="language-btn" type="button">
+            AR ▾
+        </button>
+
+        <a href="#contact" class="login-btn">
+            تواصل معنا
+        </a>
+    </div>
+
+</header>
+
+
+<main>
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-glow glow-one"></div>
+        <div class="hero-glow glow-two"></div>
+
+        <div class="hero-content">
+
+            <div class="badge">
+                <span>✨</span>
+                AI FOR SMARTER STUDYING
+            </div>
+
+            <h1>
+                مساحتك الأكاديمية
+                <span>الذكية</span>
+            </h1>
+
+            <p>
+                أنشئ أعمالك الأكاديمية، حسّن نصوصك،
+                وصحح أخطاءك باستخدام أدوات الذكاء الاصطناعي
+                في مساحة واحدة.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#tools" class="primary-btn">
+                    ابدأ الآن
+                    <span>→</span>
+                </a>
+
+                <a href="#tools" class="secondary-btn">
+                    استكشف الأدوات
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- TOOLS -->
+
+    <section class="tools-section" id="tools">
+
+        <div class="section-title">
+
+            <p>POWERFUL AI TOOLS</p>
+
+            <h2>
+                ثلاث أدوات لكل أعمالك الأكاديمية
+            </h2>
+
+            <span>
+                كل ما تحتاجه لإنشاء النصوص وتحسينها وتصحيحها
+                في مكان واحد.
+            </span>
+
+        </div>
+
+
+        <div class="tools-grid">
+
+
+            <!-- WRITER -->
+
+            <article class="tool-card">
+
+                <div class="card-top">
+
+                    <div class="tool-icon writer">
+                        ✍️
+                    </div>
+
+                    <span class="tool-number">
+                        01
+                    </span>
+
+                </div>
+
+                <h3>
+                    AI Writer
+                </h3>
+
+                <p>
+                    أنشئ البحوث والمشاريع والأعمال الأكاديمية
+                    حسب طلبك، مع تنظيم المحتوى إلى صفحات
+                    وأقسام وعناوين بطريقة احترافية.
+                </p>
+
+                <a href="/writer" class="tool-button">
+                    تجربة الأداة
+                    <span>→</span>
+                </a>
+
+            </article>
+
+
+            <!-- REWRITER -->
+
+            <article class="tool-card">
+
+                <div class="card-top">
+
+                    <div class="tool-icon rewriter">
+                        ↻
+                    </div>
+
+                    <span class="tool-number">
+                        02
+                    </span>
+
+                </div>
+
+                <h3>
+                    AI Rewriter
+                </h3>
+
+                <p>
+                    أعد صياغة النصوص وحسّن المقالات الطويلة
+                    بأسلوب أكاديمي احترافي، مع إمكانية قراءة
+                    النصوص الموجودة داخل الصور.
+                </p>
+
+                <a href="/rewriter" class="tool-button">
+                    تجربة الأداة
+                    <span>→</span>
+                </a>
+
+            </article>
+
+
+            <!-- CORRECTOR -->
+
+            <article class="tool-card">
+
+                <div class="card-top">
+
+                    <div class="tool-icon corrector">
+                        ✓
+                    </div>
+
+                    <span class="tool-number">
+                        03
+                    </span>
+
+                </div>
+
+                <h3>
+                    AI Corrector
+                </h3>
+
+                <p>
+                    اكتشف الأخطاء الإملائية والنحوية وصحح
+                    النصوص، مع إمكانية قراءة النص الموجود
+                    داخل الصور.
+                </p>
+
+                <a href="/corrector" class="tool-button">
+                    تجربة الأداة
+                    <span>→</span>
+                </a>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section class="about" id="about">
+
+        <div class="about-content">
+
+            <div class="about-label">
+                ABOUT ACADAI
+            </div>
+
+            <h2>
+                Study smarter,
+                <span>not harder.</span>
+            </h2>
+
+            <p>
+                AcadAI يجمع الأدوات الأكاديمية الذكية
+                في مساحة واحدة لمساعدة الطلاب على إنشاء
+                أعمالهم وتحسينها وتصحيحها بطريقة أسرع
+                وأكثر تنظيمًا.
+            </p>
+
+
+            <div class="about-features">
+
+                <div class="about-feature">
+
+                    <strong>01</strong>
+
+                    <span>
+                        إنشاء المشاريع
+                    </span>
+
+                </div>
+
+                <div class="about-feature">
+
+                    <strong>02</strong>
+
+                    <span>
+                        تحسين النصوص
+                    </span>
+
+                </div>
+
+                <div class="about-feature">
+
+                    <strong>03</strong>
+
+                    <span>
+                        تصحيح الأخطاء
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="contact" id="contact">
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                ✉
+            </div>
+
+            <div class="contact-content">
+
+                <p class="contact-label">
+                    NEED HELP?
+                </p>
+
+                <h2>
+                    هل واجهت مشكلة؟
+                </h2>
+
+                <p>
+                    إذا واجهت مشكلة في AcadAI أو لديك اقتراح
+                    لتحسين الموقع، يمكنك التواصل معي مباشرة
+                    عبر البريد الإلكتروني.
+                </p>
+
+                <a
+                    href="mailto:medjrounianes60@gmail.com"
+                    class="email-button"
+                >
+                    medjrounianes60@gmail.com
+                    <span>→</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <div class="footer-brand">
+
+            <div class="logo">
+                <span>✦</span>
+                AcadAI
+            </div>
+
+            <p>
+                Your smarter academic workspace.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="#home">
+                الرئيسية
+            </a>
+
+            <a href="#tools">
+                الأدوات
+            </a>
+
+            <a href="#about">
+                حولنا
+            </a>
+
+            <a href="#contact">
+                تواصل معنا
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 AcadAI
+        </p>
+
+        <a href="mailto:medjrounianes60@gmail.com">
+            medjrounianes60@gmail.com
+        </a>
+
+    </div>
+
+</footer>
+
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
+```

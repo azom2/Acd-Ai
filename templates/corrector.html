@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AcadAI Corrector</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/corrector.css') }}">
+</head>
+
+<body>
+
+<div class="corrector-container">
+
+    <!-- HEADER -->
+
+    <header class="corrector-header">
+
+        <div>
+            <h1>✦ AcadAI Corrector</h1>
+
+            <p>
+                صحح أخطاءك الإملائية والنحوية بسهولة
+            </p>
+        </div>
+
+        <a href="/" class="back-button">
+            ← الرئيسية
+        </a>
+
+    </header>
+
+
+    <!-- MAIN -->
+
+    <main class="corrector-card">
+
+        <div class="intro">
+
+            <h2>
+                ✨ اجعل نصك أكثر دقة
+            </h2>
+
+            <p>
+                اكتب النص مباشرة أو ارفع صورة تحتوي على نص،
+                وسيقوم AcadAI بقراءته وتصحيحه.
+            </p>
+
+        </div>
+
+
+        <!-- TEXT -->
+
+        <div class="form-group">
+
+            <label for="text">
+                📝 النص
+            </label>
+
+            <textarea
+                id="text"
+                placeholder="اكتب النص الذي تريد تصحيحه هنا..."
+                rows="12"
+            ></textarea>
+
+        </div>
+
+
+        <!-- IMAGE -->
+
+        <div class="image-section">
+
+            <label class="section-label">
+                🖼️ أو ارفع صورة تحتوي على نص
+            </label>
+
+
+            <label
+                for="imageInput"
+                class="upload-area"
+                id="uploadArea"
+            >
+
+                <div class="upload-icon">
+                    📷
+                </div>
+
+                <h3>
+                    اضغط لاختيار صورة
+                </h3>
+
+                <p>
+                    PNG / JPG / JPEG / WEBP
+                </p>
+
+            </label>
+
+
+            <input
+                type="file"
+                id="imageInput"
+                accept="image/png,image/jpeg,image/jpg,image/webp"
+                hidden
+            >
+
+
+            <!-- IMAGE PREVIEW -->
+
+            <div
+                id="imagePreviewContainer"
+                class="image-preview-container hidden"
+            >
+
+                <img
+                    id="imagePreview"
+                    alt="معاينة الصورة"
+                >
+
+                <div class="image-info">
+
+                    <span id="imageName">
+                        لم يتم اختيار صورة
+                    </span>
+
+                    <button
+                        type="button"
+                        id="removeImageBtn"
+                    >
+                        ✕ حذف الصورة
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- OPTIONS -->
+
+        <div class="options-grid">
+
+            <div class="form-group">
+
+                <label for="language">
+                    🌐 اللغة
+                </label>
+
+                <select id="language">
+
+                    <option value="ar">
+                        العربية
+                    </option>
+
+                    <option value="fr">
+                        الفرنسية
+                    </option>
+
+                    <option value="en">
+                        الإنجليزية
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="level">
+                    ⚙️ نوع التصحيح
+                </label>
+
+                <select id="level">
+
+                    <option value="spelling">
+                        تصحيح إملائي
+                    </option>
+
+                    <option value="grammar">
+                        إملائي + نحوي
+                    </option>
+
+                    <option value="full">
+                        تصحيح كامل
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <!-- ERROR -->
+
+        <div
+            id="errorBox"
+            class="error-box hidden"
+        ></div>
+
+
+        <!-- BUTTON -->
+
+        <button
+            type="button"
+            id="correctBtn"
+            class="correct-button"
+        >
+
+            ✨ تصحيح النص
+
+        </button>
+
+
+        <!-- LOADING -->
+
+        <div
+            id="loadingBox"
+            class="loading-box hidden"
+        >
+
+            <div class="loader"></div>
+
+            <p>
+                جاري تحليل النص وتصحيح الأخطاء...
+            </p>
+
+        </div>
+
+
+        <!-- RESULT -->
+
+        <section
+            id="resultBox"
+            class="result-box hidden"
+        >
+
+            <div class="result-header">
+
+                <h2>
+                    ✅ النص المصحح
+                </h2>
+
+                <button
+                    type="button"
+                    id="copyBtn"
+                >
+                    📋 نسخ
+                </button>
+
+            </div>
+
+
+            <div
+                id="correctedText"
+                class="corrected-text"
+            ></div>
+
+
+            <!-- CHANGES -->
+
+            <div
+                id="changesSection"
+                class="changes-section"
+            >
+
+                <h3>
+                    🔎 التعديلات
+                </h3>
+
+                <div id="changesList"></div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script
+    src="{{ url_for('static', filename='js/corrector.js') }}">
+</script>
+
+</body>
+</html>

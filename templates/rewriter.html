@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>AcadAI Rewriter</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/rewriter.css') }}"
+    >
+</head>
+
+<body>
+
+<main class="rewriter-container">
+
+    <!-- HEADER -->
+
+    <header class="rewriter-header">
+
+        <a href="/" class="back-button">
+            ← الرئيسية
+        </a>
+
+        <div class="brand">
+            <span>✦</span>
+            AcadAI
+        </div>
+
+        <h1>
+            AI Rewriter
+        </h1>
+
+        <p>
+            أعد صياغة نصوصك أو اقرأ النصوص الموجودة في الصور
+        </p>
+
+    </header>
+
+
+    <!-- MAIN CARD -->
+
+    <section class="rewriter-card">
+
+        <!-- TEXT -->
+
+        <div class="form-section">
+
+            <label for="textInput">
+                النص
+            </label>
+
+            <textarea
+                id="textInput"
+                placeholder="اكتب النص الذي تريد إعادة صياغته هنا..."
+            ></textarea>
+
+            <div class="char-count">
+                <span id="charCount">0</span>
+                حرف
+            </div>
+
+        </div>
+
+
+        <!-- IMAGE -->
+
+        <div class="image-section">
+
+            <label>
+                أو ارفع صورة تحتوي على نص
+            </label>
+
+            <div class="upload-area">
+
+                <label
+                    for="imageInput"
+                    class="upload-button"
+                >
+                    🖼️ اختيار صورة
+                </label>
+
+                <input
+                    id="imageInput"
+                    type="file"
+                    accept="image/png,image/jpeg,image/webp"
+                    hidden
+                >
+
+                <span id="imageName">
+                    لم يتم اختيار صورة
+                </span>
+
+            </div>
+
+
+            <div
+                id="imagePreviewContainer"
+                class="image-preview hidden"
+            >
+
+                <img
+                    id="imagePreview"
+                    alt="معاينة الصورة"
+                >
+
+                <button
+                    id="removeImageBtn"
+                    type="button"
+                >
+                    إزالة الصورة
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- OPTIONS -->
+
+        <div class="options-grid">
+
+            <div class="option">
+
+                <label for="language">
+                    اللغة
+                </label>
+
+                <select id="language">
+
+                    <option value="ar">
+                        العربية
+                    </option>
+
+                    <option value="fr">
+                        الفرنسية
+                    </option>
+
+                    <option value="en">
+                        الإنجليزية
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="option">
+
+                <label for="style">
+                    أسلوب إعادة الصياغة
+                </label>
+<option value="academic_pro">
+    🎓 تحسين أكاديمي متقدم
+</option>
+<div class="option">
+
+    <label for="improvement">
+        مستوى التحسين
+    </label>
+
+    <select id="improvement">
+
+        <option value="language">
+            تحسين اللغة
+        </option>
+
+        <option value="academic">
+            أسلوب أكاديمي
+        </option>
+
+        <option value="academic_pro">
+            أكاديمي احترافي
+        </option>
+
+        <option value="presentation">
+            جاهز للعرض الجامعي
+        </option>
+
+    </select>
+
+</div>
+                <select id="style">
+
+                    <option value="academic">
+                        🎓 أكاديمي
+                    </option>
+
+                    <option value="professional">
+                        💼 احترافي
+                    </option>
+
+                    <option value="simple">
+                        📝 بسيط وواضح
+                    </option>
+
+                    <option value="scientific">
+                        🔬 علمي
+                    </option>
+
+                    <option value="creative">
+                        ✨ إبداعي
+                    </option>
+
+                    <option value="detailed">
+                        📚 مفصل
+                    </option>
+
+                    <option value="short">
+                        🔹 مختصر
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <!-- ERROR -->
+
+        <div
+            id="errorBox"
+            class="error-box hidden"
+        ></div>
+
+
+        <!-- REWRITE -->
+
+        <button
+            id="rewriteBtn"
+            type="button"
+            class="rewrite-button"
+        >
+            ✨ إعادة صياغة
+        </button>
+
+
+        <!-- LOADING -->
+
+        <div
+            id="loadingBox"
+            class="loading-box hidden"
+        >
+
+            <div class="loader"></div>
+
+            <p>
+                جاري تحليل النص وإعادة صياغته...
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- RESULT -->
+
+    <section
+        id="resultSection"
+        class="result-section hidden"
+    >
+
+        <div class="result-header">
+
+            <h2>
+                النتيجة
+            </h2>
+
+            <button
+                id="copyBtn"
+                type="button"
+                class="copy-button"
+            >
+                📋 نسخ
+            </button>
+
+        </div>
+
+
+        <!-- EXTRACTED TEXT -->
+
+        <div
+            id="extractedBox"
+            class="extracted-box hidden"
+        >
+
+            <h3>
+                🔍 النص الذي تم قراءته
+            </h3>
+
+            <div
+                id="extractedText"
+                class="text-result"
+            ></div>
+
+        </div>
+
+
+        <!-- REWRITTEN -->
+
+        <div class="rewritten-box">
+
+            <h3>
+                ✨ النص بعد إعادة الصياغة
+            </h3>
+
+            <div
+                id="rewrittenText"
+                class="text-result"
+            ></div>
+
+        </div>
+
+
+        <!-- SPELLING WARNING -->
+
+        <div
+            id="spellingWarning"
+            class="spelling-warning hidden"
+        >
+
+            <div class="warning-icon">
+                ⚠️
+            </div>
+
+            <div class="warning-content">
+
+                <h3>
+                    تم العثور على أخطاء لغوية
+                </h3>
+
+                <p id="warningMessage">
+                    يبدو أن النص يحتوي على أخطاء إملائية أو نحوية.
+                </p>
+
+                <a
+                    href="/corrector"
+                    class="corrector-link"
+                >
+                    الانتقال إلى AI Corrector →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script
+    src="{{ url_for('static', filename='js/rewriter.js') }}"
+></script>
+
+</body>
+
+</html>
